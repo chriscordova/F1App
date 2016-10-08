@@ -1,0 +1,21 @@
+<section>
+    <div class="container">
+        <table class="table table-striped" id="driversTable">
+            <thead>
+                <tr><th>Driver</th><th>Full Name</th><th>Driver Number</th><th>Driver Profile</th></tr>
+            </thead>
+            <tbody data-bind="foreach: drivers">
+                <tr>
+                    <td>
+                        <img data-bind="attr:{src: ImageURL}, click:$parent.select" style="max-width: 100px" />
+                    </td>
+                    <td data-bind="text: Name"></td>
+                    <td data-bind="text: DriverNumber"></td>
+                    <td>
+                        <a data-bind="attr:{href: DriverURL}, text: Name"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
