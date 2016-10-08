@@ -2,8 +2,8 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router'], function 
 
     return {
         router: router,
-        drivers: ko.observableArray([]),
         years: ko.observableArray([]),
+        constructors: ko.observableArray([]),
         activate: function(year) {
             var that = this;
             var aYears = [{
@@ -11,17 +11,17 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router'], function 
             }];
 
             that.years(aYears[0].years);
-
-            var sURL = 'http://www.c0rdii.com/f1/api/standings/drivers/' + year;
-            var allDrivers = [];
+            
+            var sURL = 'http://www.c0rdii.com/f1/api/standings/constructor/'+year;
+            var allTeams = [];
             $.getJSON(sURL, function(data){
-                allDrivers = data[0].DriverStandings;
+                allTeams = data[0].ConstructorStandings;
             }).done(function(){
-                return that.drivers(allDrivers);
-            });                    
+                return that.constructors(allTeams);
+            });            
         },
         param: function(){
             return router.activeInstruction().params[0];
-        } 
+        }
     }
 });

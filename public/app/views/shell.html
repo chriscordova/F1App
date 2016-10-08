@@ -14,23 +14,41 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            
+
             <ul class="nav navbar-nav" data-bind="foreach: router.navigationModel">
+                <!-- ko if: $data.childRouter == undefined && $data.parent === undefined -->
                 <li data-bind="css: { active: isActive }">
                     <a data-bind="attr: { href: hash }, text: title"></a>
                 </li>
+                <!-- /ko -->
+
+                <!-- ko if: $data.childRouter !== undefined -->
+                <li data-bind="css: { active: isActive }">
+                    <a data-bind="attr: { href: hash }, text: title"></a>
+                    <ul data-bind="foreach: childRouter">
+                        <li>
+                            <a data-bind="attr: { href: hash }, text: title"></a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- /ko -->
             </ul>
 
+            <!--Spinning Image when searching appears on far right-->
             <ul class="nav navbar-nav navbar-right">
                 <li class="loader" data-bind="css: { active: router.isNavigating }">
                     <i class="fa fa-spinner fa-spin fa-2x"></i>
                 </li>
             </ul>
 
+            <!--Search bar-->
             <form class="navbar-form navbar-right" role="search" data-bind="submit:search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
             </form>
+
         </div>
     </nav>
 

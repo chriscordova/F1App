@@ -1,0 +1,44 @@
+<section>
+    <div class="container">
+        <p></p>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel-group">
+                    <div class="panel panel-default" data-bind="foreach: years">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" data-bind="text: $data, attr: { href: '#collapse' + $index() }"></a>
+                        </div>
+                        <div data-bind="attr: { id: 'collapse' + $index() }" class="panel-collapse collapse">
+                            <ul class="list-group" data-bind="foreach: $root.countries">
+                                <a data-bind="attr: { href: '/#results/' + $parent + '/' + $data }"><li class="list-group-item"><span data-bind="text: $root.friendly($data)"></span></li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <!-- ko if: yearParam() != null && countryParam != null -->
+                <h2 data-bind="text: 'Results for ' + countryParam() + ' ' + yearParam()"></h2>
+                <table class="table table-striped" id="resultsTable">
+                    <thead>
+                        <tr><th>Position</th><th>Number</th><th>Driver</th>
+                        <th>Team</th><th>Laps</th>
+                        <th>Time / Retired Result</th><th>Points</th></tr>
+                    </thead>
+                    <tbody data-bind="foreach: results">
+                        <tr>                    
+                            <td data-bind="text: Position"></td>
+                            <td data-bind="text: Number"></td>
+                            <td data-bind="text: Driver"></td>
+                            <td data-bind="text: Team"></td>
+                            <td data-bind="text: Laps"></td>
+                            <td data-bind="text: TimeOrRetiredResult"></td>
+                            <td data-bind="text: Points"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</section>

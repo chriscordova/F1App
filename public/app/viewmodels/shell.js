@@ -7,13 +7,17 @@
             app.showMessage('Search not yet implemented...');
         },
         activate: function () {
-            router.map([
-                { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
-                //{ route: 'flickr', moduleId: 'viewmodels/flickr', nav: true },
-                { route: 'f1drivers', title: 'F1 Drivers', moduleId: 'viewmodels/f1drivers', nav: true},
-                { route: 'f1standings', title: 'F1 Standings', moduleId: 'viewmodels/f1standings', nav: true}
+            router
+            .makeRelative({moduleId: 'viewmodels'})
+            .map([
+                { route: '', title:'Welcome', moduleId: 'welcome', nav: true },
+                { route: 'drivers', title: 'Drivers', moduleId: 'f1drivers', nav: true},
+                { route: 'standings(/:id)', hash: '#standings', title: 'Driver Standings', moduleId: 'f1standings', nav: true},
+                { route: 'constructorstandings(/:id)', hash: '#constructorstandings', title: 'Constructor Standings', moduleId: 'f1constructorstandings', nav: true},
+                { route: 'results(/:id)(/:id)', hash: '#results', title: 'Race Results', moduleId: 'f1results', nav: true}
+
             ]).buildNavigationModel();
-            
+        
             return router.activate();
         }
     };
