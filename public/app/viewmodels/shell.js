@@ -1,4 +1,4 @@
-﻿define(['plugins/router', 'durandal/app'], function (router, app) {
+﻿define(['plugins/router', 'durandal/app', 'bootstrap'], function (router, app) {
     return {
         router: router,
         search: function() {
@@ -19,6 +19,10 @@
             ]).buildNavigationModel();
         
             return router.activate();
+        },
+        hideMenu: function(e){
+            $(".navbar-collapse").collapse('hide');
+            window.location.href = e.hash;
         }
     };
 });

@@ -1,4 +1,4 @@
-<section>
+<section class="toggled">
     <div class="container">
         <p></p>
         <div class="row">
@@ -7,7 +7,7 @@
                     <a data-toggle="collapse" data-bind="attr: { href: '#collapse' + $index() }"><li class="list-group-item"><span data-bind="text: $data"></span></li></a>
                     <div data-bind="attr: { id: 'collapse' + $index() }" class="panel-collapse collapse">
                         <ul class="list-group" data-bind="foreach: $root.countries">
-                            <a data-bind="attr: { href: '#results/' + $parent + '/' + $data }"><li class="list-group-item"><span data-bind="text: '- ' + $root.friendly($data)"></span></li></a>
+                            <a data-bind="attr: { href: '#results/' + $parent + '/' + $data }, click: $root.hideMenu"><li class="list-group-item"><span data-bind="text: '- ' + $root.friendly($data)"></span></li></a>
                         </ul>
                     </div>
                 </ul>

@@ -37,6 +37,10 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         },
         friendly: function(country){
             return country.replace('-',' ');
+        },
+        hideMenu: function(e,v){
+            $('.panel-collapse').collapse('hide');
+            window.location.href = v.currentTarget.hash;
         }
     }
 });
