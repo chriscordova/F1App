@@ -4,5 +4,47 @@
     </div>
     <div class="modal-body">
         <img data-bind="attr:{src: ImageURL}" />
+        <div class="details">
+            <table class="table table-striped">
+                <tr>
+                    <th>Country</th>
+                    <td data-bind="text: Biography.Country"></td>
+                </tr>
+                <tr>
+                    <th>Podiums</th>
+                    <td data-bind="text: Biography.Podiums"></td>
+                </tr>
+                <tr>
+                    <th>Points</th>
+                    <td data-bind="text: Biography.Points"></td>
+                </tr>
+                <tr>
+                    <th>Grand Prix's</th>
+                    <td data-bind="text: Biography.GrandPrixsEntered"></td>
+                </tr>
+                <tr>
+                    <th>World Championships</th>
+                    <td data-bind="text: Biography.WorldChampionships"></td>
+                </tr>
+                <tr>
+                    <th>Highest Finish</th>
+                    <td data-bind="text: Biography.HighestRaceFinish"></td>
+                </tr>
+                <tr>
+                    <th>Highest Grid</th>
+                    <td data-bind="text: Biography.HighestGridPosition"></td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td data-bind="text: Biography.Age"></td>
+                </tr>
+                <tr>
+                    <th>Birth Country</th>
+                    <td data-bind="text: Biography.PlaceOfBirth"></td>
+                </tr>
+                
+            </table>
+            
+        </div>
     </div>
 </div>

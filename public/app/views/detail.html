@@ -4,5 +4,10 @@
     </div>
     <div class="modal-body">
         <p data-bind="html: description"></p>
+        <div class="details">
+            <ul data-bind="foreach: Biography">
+                <li data-bind="text: Country"></li>
+            </ul>
+        </div>
     </div>
 </div>
