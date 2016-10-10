@@ -41,6 +41,6 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         },
         teamParam: function(){
             return router.activeInstruction().params[0];
-        },
+        }
     }
 });

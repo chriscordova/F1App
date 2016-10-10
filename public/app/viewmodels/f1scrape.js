@@ -4,36 +4,36 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         router: router,
         activate: function() {
             
-
-            var sURL = '';
-
-
-            
-        
         },
         scrapeData: function(item, e){
             
-            var sUrl = 'http://www.c0rdii.com/f1/api/scrape/' + e.currentTarget.id;
-            $('#loading').show();
+            var scrapeItem = e.currentTarget.id;
+            var sUrl = 'http://www.c0rdii.com/f1/api/scrape/' + scrapeItem;
+
+            $('#success-' + scrapeItem).hide();
+            $('#fail-' + scrapeItem).hide();
+            $('#success-' + scrapeItem).hide();
+            $('#error-' + scrapeItem).html('');
+            $('#loading-' + scrapeItem).show();
 
             $.ajax({
                 type: 'GET',
-                beforeSend: setHeader,
+                beforeSend: setHeaders,
                 dataType: 'json',
                 url: sUrl,
                 success: function(msg) {
-                    console.log(msg);
-                    $('#loading').hide();
-                    $('#teamsTable').show();
+                    $('#loading-' + scrapeItem).hide();
+                    $('#success-' + scrapeItem).show();
                 },
                 error: function(msg){
                     console.log(msg);
-                    $('#loading').hide();
-                    $('#teamsTable').show();
+                    $('#loading-' + scrapeItem).hide();
+                    $('#fail-' + scrapeItem).show();
+                    $('#error-' + scrapeItem).html(msg.statusText);
                 }
             });
 
-            function setHeader(xhr) {
+            function setHeaders(xhr) {
                 xhr.setRequestHeader('Authorization', $('#token').val());
             }
         }

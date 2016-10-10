@@ -17,6 +17,7 @@
                 { route: 'results(/:id)(/:id)', hash: '#results', title: 'Race Results', moduleId: 'f1results', nav: true},
                 { route: 'teams(/:id)', hash: '#teams', title: 'Teams', moduleId: 'f1teams', nav: true  },
                 { route: 'admin', hash: '#admin', title: 'Admin', moduleId: 'f1scrape', nav: true  }
+                
 
             ]).buildNavigationModel();
         

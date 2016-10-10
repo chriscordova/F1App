@@ -6,7 +6,7 @@
         'transitions' : '../lib/durandal/js/transitions',
         'knockout': '../lib/knockout/knockout-3.1.0',
         'bootstrap': '../lib/bootstrap/js/bootstrap',
-        'jquery': 'http://code.jquery.com/jquery-3.1.1.min',
+        'jquery': '../lib/jquery/jquery-1.9.1.min',
         'datatables':'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min',
         'customScripts':'../lib/custom'
     },

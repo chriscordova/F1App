@@ -5,30 +5,36 @@
         <h3>Scrape Data</h3>
         <div class="form-group">
             <form>
-                <input type="text" placeholder="Auth Token" class="form-control" id="token"/>
-
-
+                <input type="text" style="width: 500px;" placeholder="Auth Token" class="form-control" id="token"/>
             </form>
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-primary" id="drivers" value="Drivers" data-bind="click: $root.scrapeData">Drivers</button>
-            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
-            <span id="drivers-cb"/>
+            <img src="css/ellipsis.gif" id="loading-drivers" style="width: 30px; display: none;"/>
+            <img src="css/tick_green.png" id="success-drivers" style="width: 30px; display: none;"/>
+            <img src="css/red_cross.png" id="fail-drivers" style="width: 26px; display: none;"/>
+            <span id="error-drivers"></span>
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-primary" id="standings" value="Standings" data-bind="click: $root.scrapeData">Standings</button>
-            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
-            <span id="standings-cb"/>
+            <img src="css/ellipsis.gif" id="loading-standings" style="width: 30px; display: none;"/>
+            <img src="css/tick_green.png" id="success-standings" style="width: 30px; display: none;"/>
+            <img src="css/red_cross.png" id="fail-standings" style="width: 26px; display: none;"/>
+            <span id="error-standings"></span>
         </div>
         <div class="form-group">
             <button type="button" class="btn btn-primary" id="seasons" value="Seasons" data-bind="click: $root.scrapeData">Seasons</button>
-            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
-            <span id="seasons-cb"/>
+            <img src="css/ellipsis.gif" id="loading-seasons" style="width: 30px; display: none;"/>
+            <img src="css/tick_green.png" id="success-seasons" style="width: 30px; display: none;"/>
+            <img src="css/red_cross.png" id="fail-seasons" style="width: 26px; display: none;"/>
+            <span id="error-seasons"></span>
         </div>
         <div class="form-group">
             <button type="button"  class="btn btn-primary" id="results" value="Results" data-bind="click: $root.scrapeData" >Results</button>
-            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
-            <span id="results-cb"/>
+            <img src="css/ellipsis.gif" id="loading-results" style="width: 30px; display: none;"/>
+            <img src="css/tick_green.png" id="success-results" style="width: 30px; display: none;"/>
+            <img src="css/red_cross.png" id="fail-results" style="width: 26px; display: none;"/>
+            <span id="error-results"></span>
         </div>
         
     </div>

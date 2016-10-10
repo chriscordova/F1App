@@ -1,4 +1,4 @@
-define(['plugins/http', 'durandal/app', 'knockout','datatables','customScripts'], function (http, app, ko) {
+define(['plugins/http', 'durandal/app', 'knockout', 'plugins/dialog','datatables', 'customScripts'], function (http, app, ko, dialog) {
 
     return {
         drivers: ko.observableArray([]),
@@ -16,12 +16,16 @@ define(['plugins/http', 'durandal/app', 'knockout','datatables','customScripts']
 
             
         },
-        select: function(item,v,b,f) {
+        select: function(item) {
             //the app model allows easy display of modal dialogs by passing a view model
             //views are usually located by convention, but you an specify it as well with viewUrl
-            //app.biography(item.Biography);
 
             item.viewUrl = 'views/driverimage';
+            item.closeModal = function(a,b){
+                var self = this;
+                dialog.close(self);
+                window.location.href = "/#teams/" + a.Team.Name;
+            };
             app.showDialog(item);
         }
     }
