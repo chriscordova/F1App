@@ -15,7 +15,8 @@
                 { route: 'standings(/:id)', hash: '#standings', title: 'Driver Standings', moduleId: 'f1standings', nav: true},
                 { route: 'constructorstandings(/:id)', hash: '#constructorstandings', title: 'Constructor Standings', moduleId: 'f1constructorstandings', nav: true},
                 { route: 'results(/:id)(/:id)', hash: '#results', title: 'Race Results', moduleId: 'f1results', nav: true},
-                { route: 'teams(/:id)', hash: '#teams', title: 'Teams', moduleId: 'f1teams', nav: true  }
+                { route: 'teams(/:id)', hash: '#teams', title: 'Teams', moduleId: 'f1teams', nav: true  },
+                { route: 'admin', hash: '#admin', title: 'Admin', moduleId: 'f1scrape', nav: true  }
 
             ]).buildNavigationModel();
         

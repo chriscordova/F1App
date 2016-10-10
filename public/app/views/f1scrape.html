@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+        <p></p>
+        <p></p>
+        <h3>Scrape Data</h3>
+        <div class="form-group">
+            <form>
+                <input type="text" placeholder="Auth Token" class="form-control" id="token"/>
+
+
+            </form>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" id="drivers" value="Drivers" data-bind="click: $root.scrapeData">Drivers</button>
+            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
+            <span id="drivers-cb"/>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" id="standings" value="Standings" data-bind="click: $root.scrapeData">Standings</button>
+            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
+            <span id="standings-cb"/>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" id="seasons" value="Seasons" data-bind="click: $root.scrapeData">Seasons</button>
+            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
+            <span id="seasons-cb"/>
+        </div>
+        <div class="form-group">
+            <button type="button"  class="btn btn-primary" id="results" value="Results" data-bind="click: $root.scrapeData" >Results</button>
+            <img src="css/ellipsis.gif" id="loading" style="width: 30px; display: none;"/>
+            <span id="results-cb"/>
+        </div>
+        
+    </div>
+</section>
