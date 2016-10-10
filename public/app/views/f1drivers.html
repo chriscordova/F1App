@@ -1,5 +1,6 @@
 <section>
     <div class="container">
+        <p></p>
         <table class="table table-striped" id="driversTable">
             <thead>
                 <tr><th>Driver</th><th>Full Name</th><th>Driver Number</th><th>Driver Profile</th></tr>
@@ -7,7 +8,7 @@
             <tbody data-bind="foreach: drivers">
                 <tr>
                     <td>
-                        <img data-bind="attr:{src: ImageURL}, click:$parent.select" style="max-width: 100px" />
+                        <img data-bind="attr:{src: ImageURL}, click:$parent.select" style="max-width: 100px; cursor: pointer;" />
                     </td>
                     <td data-bind="text: Name"></td>
                     <td data-bind="text: DriverNumber"></td>

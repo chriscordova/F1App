@@ -1,4 +1,4 @@
-define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router'], function (http, app, ko, router) {
+define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'datatables','customScripts'], function (http, app, ko, router) {
 
     return {
         router: router,
@@ -17,7 +17,8 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router'], function 
             $.getJSON(sURL, function(data){
                 allTeams = data[0].ConstructorStandings;
             }).done(function(){
-                return that.constructors(allTeams);
+                buildDataTable('#constructorsTable', that.constructors, allTeams);
+                //return that.constructors(allTeams);
             });            
         },
         param: function(){

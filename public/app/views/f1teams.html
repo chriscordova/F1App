@@ -1,0 +1,70 @@
+<section>
+    <div class="container">
+        <p></p>
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-group" data-bind="foreach: teams">
+                    <a data-bind="attr: { href: '#teams/' + $data }"><li class="list-group-item"><span data-bind="text: $data"></span></li></a>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <!-- ko if: $root.teamParam() != null -->
+                <h2 data-bind="text: $root.teamParam()"></h2>
+                <img src="css/ellipsis.gif" id="loading" style="width: 50px; display: none;"/>
+                <table class="table table-striped" id="teamsTable" data-bind="with: info">
+                    <tbody>
+                    <tr>
+                        <th>Current Drivers</th>
+                        <td data-bind="text: Team.Drivers"></td>
+                    </tr>
+                    <tr>
+                        <th>Full Team Name</th>
+                        <td data-bind="text: Team.FullName"></td>
+                    </tr>
+                    <tr>
+                        <th>Base</th>
+                        <td data-bind="text: Team.Base"></td>
+                    </tr>
+                    <tr>
+                        <th>Chassis</th>
+                        <td data-bind="text: Team.Chassis"></td>
+                    </tr>
+                    <tr>
+                        <th>Fastest Laps</th>
+                        <td data-bind="text: Team.FastestLaps"></td>
+                    </tr>
+                    <tr>
+                        <th>First Team Entry</th>
+                        <td data-bind="text: Team.FirstTeamEntry"></td>
+                    </tr>
+                    <tr>
+                        <th>Highest Race Finish</th>
+                        <td data-bind="text: Team.HighestRaceFinish"></td>
+                    </tr>
+                    <tr>
+                        <th>Pole Positions</th>
+                        <td data-bind="text: Team.PolePositions"></td>
+                    </tr>
+                    <tr>
+                        <th>Power Unit</th>
+                        <td data-bind="text: Team.PowerUnit"></td>
+                    </tr>
+                    <tr>
+                        <th>Team Chief</th>
+                        <td data-bind="text: Team.TeamChief"></td>
+                    </tr>
+                    <tr>
+                        <th>Technical Chief</th>
+                        <td data-bind="text: Team.TechnicalChief"></td>
+                    </tr>
+                    <tr>
+                        <th>World Championships</th>
+                        <td data-bind="text: Team.WorldChampionships"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- /ko-->
+            </div>
+        </div>
+    </div>
+</section>

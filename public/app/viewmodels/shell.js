@@ -1,4 +1,4 @@
-﻿define(['plugins/router', 'durandal/app', 'bootstrap'], function (router, app) {
+﻿define(['plugins/router', 'durandal/app', 'bootstrap','datatables'], function (router, app) {
     return {
         router: router,
         search: function() {
@@ -14,7 +14,8 @@
                 { route: 'drivers', title: 'Drivers', moduleId: 'f1drivers', nav: true},
                 { route: 'standings(/:id)', hash: '#standings', title: 'Driver Standings', moduleId: 'f1standings', nav: true},
                 { route: 'constructorstandings(/:id)', hash: '#constructorstandings', title: 'Constructor Standings', moduleId: 'f1constructorstandings', nav: true},
-                { route: 'results(/:id)(/:id)', hash: '#results', title: 'Race Results', moduleId: 'f1results', nav: true}
+                { route: 'results(/:id)(/:id)', hash: '#results', title: 'Race Results', moduleId: 'f1results', nav: true},
+                { route: 'teams(/:id)', hash: '#teams', title: 'Teams', moduleId: 'f1teams', nav: true  }
 
             ]).buildNavigationModel();
         

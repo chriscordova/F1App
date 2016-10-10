@@ -1,4 +1,4 @@
-define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router'], function (http, app, ko, router) {
+define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'datatables', 'customScripts'], function (http, app, ko, router) {
 
     return {
         router: router,
@@ -17,7 +17,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router'], function 
             $.getJSON(sURL, function(data){
                 allDrivers = data[0].DriverStandings;
             }).done(function(){
-                return that.drivers(allDrivers);
+                buildDataTable('#driversTable', that.drivers, allDrivers)
             });                    
         },
         param: function(){

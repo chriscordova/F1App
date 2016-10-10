@@ -1,4 +1,4 @@
-define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap'], function (http, app, ko, router, bs) {
+define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap','datatables','customScripts'], function (http, app, ko, router, bs) {
 
     return {
         router: router,
@@ -6,6 +6,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         years: ko.observableArray([]),
         countries: ko.observableArray([]),
         activate: function(year, country) {
+            
             var that = this;
             var aYears = {
                 "years":  ['2015','2016']
@@ -18,16 +19,19 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
             that.years(aYears.years);
 
             that.countries(aCountries.country);
-            if (year != null && country != null){
+            if (year == null || country == null){
+                return;
+            }
+            else {
                 var sURL = 'http://www.c0rdii.com/f1/api/results/' + year + '/' + country;
                 var allResults = [];
                 $.getJSON(sURL, function(data){
                     allResults = data[0].Results;
                 }).done(function(){
-                    return that.results(allResults);
+                    buildDataTable('#resultsTable', that.results, allResults);
                 });
             }
-                          
+
         },
         yearParam: function(){
             return router.activeInstruction().params[0];
@@ -39,7 +43,10 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
             return country.replace('-',' ');
         },
         hideMenu: function(e,v){
-            $('.panel-collapse').collapse('hide');
+            var id = v.currentTarget.parentElement.id;
+            var $element = $('#' + id).parent();
+            var bIsShown = $element.hasClass('in');
+            if (bIsShown) $element.collapse('hide');
             window.location.href = v.currentTarget.hash;
         }
     }

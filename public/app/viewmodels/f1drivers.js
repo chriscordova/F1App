@@ -1,4 +1,4 @@
-define(['plugins/http', 'durandal/app', 'knockout'], function (http, app, ko) {
+define(['plugins/http', 'durandal/app', 'knockout','datatables','customScripts'], function (http, app, ko) {
 
     return {
         drivers: ko.observableArray([]),
@@ -11,7 +11,7 @@ define(['plugins/http', 'durandal/app', 'knockout'], function (http, app, ko) {
             $.getJSON(sURL, function(data){
                 allDrivers = data[0].Drivers;
             }).done(function(){
-                return that.drivers(allDrivers);
+                buildDataTable('#driversTable', that.drivers, allDrivers)
             });
 
             
