@@ -1,0 +1,34 @@
+<div class="modal-content pictureDetail autoclose">
+    <div class="modal-header" style="text-align: center;">
+        <h3 data-bind="html: $root.friendly(RaceCountry.Name)"></h3>
+    </div>
+    <div class="modal-body">
+        <img class="img-thumbnail" data-bind="attr:{src: RaceCountry.CircuitImageURL }" />
+        <div class="details">
+            <table class="table table-striped">
+                <tr>
+                    <th>First Grand Prix</th>
+                    <td data-bind="text: RaceCountry.FirstGrandPrix"></td>
+                </tr>
+                <tr>
+                    <th>Number of Laps</th>
+                    <td data-bind="text: RaceCountry.NumberOfLaps"></td>
+                </tr>
+                <tr>
+                    <th>Circuit Length</th>
+                    <td data-bind="text: RaceCountry.CircuitLength"></td>
+                </tr>
+                <tr>
+                    <th>Race Distance</th>
+                    <td data-bind="text: RaceCountry.RaceDistance"></td>
+                </tr>
+                <tr>
+                    <th>Lap Record</th>
+                    <td data-bind="text: RaceCountry.LapRecord"></td>
+                </tr>
+                
+            </table>
+            
+        </div>
+    </div>
+</div>

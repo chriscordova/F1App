@@ -1,0 +1,32 @@
+<section>
+    <div class="container">
+        <p></p>
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-group" data-bind="foreach: years">
+                    <a data-bind="attr: { href: '#seasons/' + $data }"><li class="list-group-item"><span data-bind="text: $data"></span></li></a>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <!-- ko if: yearParam() != null -->
+                <h2 data-bind="text: 'Season Information for ' + yearParam()"></h2>
+                <table class="table table-striped" id="seasonsTable">
+                    <thead>
+                        <tr><th>Country</th>
+                        <th>Date</th>
+                        <th>Schedule</th></tr>
+                    </thead>
+                    <tbody data-bind="foreach: seasons">
+                        <tr>
+                            
+                            <td style="cursor: pointer;" data-bind="click: $parent.select"><a data-bind="text: $root.friendly(RaceCountry.Name)"></a></td>
+                            <td data-bind="text: DateFrom + ' - ' + DateTo + ' ' + Month"></td>
+                            <td style="cursor: pointer;" data-bind="click: $parent.viewSchedule"><a>View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</section>

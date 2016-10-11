@@ -1,0 +1,23 @@
+<div class="modal-content pictureDetail autoclose">
+    <div class="modal-header" style="text-align: center;">
+        <h3 data-bind="html: 'Race Schedule - ' + $root.friendly(RaceCountry.Name)"></h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped">
+            <thead>
+                <tr><th>Event</th>
+                <th>Day</th>
+                <th>Time</th>
+                </tr>
+                <tr></tr>
+            </thead>
+            <tbody data-bind="foreach: Schedule">
+                <tr>
+                    <td data-bind="text: Event"></td>
+                    <td data-bind="text: Date"></td>
+                    <td data-bind="text: Time"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
