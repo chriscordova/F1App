@@ -4,6 +4,31 @@
  * see: http://durandaljs.com or https://github.com/BlueSpire/Durandal for details
  */
 
+body {
+    background: url(Background.png);
+}
+
+.navbar-collapse, .navbar-header {
+    background-color: black;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #808080 !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus {
+    background-color: #171717 !important;
+    color: white !important;
+}
+
+.container {
+    background-color: white;
+    margin-top: 15px;
+    padding: 20px 10px;
+}
+
+/*****************************************/
+
 .splash {
     text-align: center;
     margin: 10% 0 0 0;
@@ -39,7 +64,7 @@ section {
 }
 
 .navbar-nav li.loader {
-    margin: 12px 6px 0 6px;
+    margin: 12px 24px 0 6px;
     visibility: hidden;
 }
 

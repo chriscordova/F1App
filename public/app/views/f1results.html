@@ -15,23 +15,45 @@
             <div class="col-md-9">
                 <!-- ko if: yearParam() != null && countryParam != null -->
                 <h2 data-bind="text: 'Results for ' + countryParam() + ' ' + yearParam()"></h2>
-                <table class="table table-striped" id="resultsTable">
-                    <thead>
-                        <tr><th>Position</th><th>Number</th><th>Driver</th>
-                        <th>Team</th><th>Laps</th>
-                        <th>Time / Retired Result</th><th>Points</th></tr>
-                    </thead>
-                    <tbody data-bind="foreach: results">
-                        <tr>                    
-                            <td data-bind="text: Position"></td>
-                            <td data-bind="text: Number"></td>
-                            <td data-bind="text: Driver"></td>
-                            <td data-bind="text: Team"></td>
-                            <td data-bind="text: Laps"></td>
-                            <td data-bind="text: TimeOrRetiredResult"></td>
-                            <td data-bind="text: Points"></td>
-                        </tr>
-                    </tbody>
+                    <!-- ko if: allCountries() == false -->
+                    <table class="table table-striped" id="resultsTable">
+                        <thead>
+                            <tr><th>Position</th><th>Number</th><th>Driver</th>
+                            <th>Team</th><th>Laps</th>
+                            <th>Time / Retired Result</th><th>Points</th></tr>
+                        </thead>
+                        <tbody data-bind="foreach: results">
+                            <tr>                    
+                                <td data-bind="text: Position"></td>
+                                <td data-bind="text: Number"></td>
+                                <td data-bind="text: Driver"></td>
+                                <td data-bind="text: Team"></td>
+                                <td data-bind="text: Laps"></td>
+                                <td data-bind="text: TimeOrRetiredResult"></td>
+                                <td data-bind="text: Points"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- /ko -->
+                    <!-- ko if: allCountries() == true -->
+                    <table class="table table-striped" id="yearResultsTable">
+                        <thead>
+                            <tr><th>Grand Prix</th><th>Date</th><th>Winner</th>
+                            <th>Team</th><th>Laps</th>
+                            <th>Time / Retired Result</th></tr>
+                        </thead>
+                        <tbody data-bind="foreach: results">
+                            <tr>                    
+                                <td data-bind="text: GrandPrix"></td>
+                                <td data-bind="text: Date"></td>
+                                <td data-bind="text: Winner"></td>
+                                <td data-bind="text: Team"></td>
+                                <td data-bind="text: Laps"></td>
+                                <td data-bind="text: TimeOrRetiredResult"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- /ko -->
                 </table>
                 <!-- /ko -->
             </div>

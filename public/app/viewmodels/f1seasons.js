@@ -23,7 +23,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
                 return;
             }
             else {
-                var sURL = 'http://localhost:62129/api/seasons/' + year;
+                var sURL = 'http://www.c0rdii.com/f1/api/seasons/' + year;
                 var allSeasons = [];
                 $.getJSON(sURL, function(data){
                     allSeasons = data;

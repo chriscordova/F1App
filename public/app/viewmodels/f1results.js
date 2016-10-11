@@ -5,6 +5,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         results: ko.observableArray([]),
         years: ko.observableArray([]),
         countries: ko.observableArray([]),
+        allCountries: ko.observable(),
         activate: function(year, country) {
             
             var that = this;
@@ -13,24 +14,34 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
             };
 
             var aCountries = {
-                "country": ['Australia','Malaysia','China','Bahrain','Spain','Monaco','Canada','Austria','Great-Britain','Hungary','Belgium','Italy','Singapore','Japan','Russia','United-States','Mexico','Brazil','Abu-Dhabi']
+                "country": ['All','Australia','Malaysia','China','Bahrain','Spain','Monaco','Canada','Austria','Great-Britain','Hungary','Belgium','Italy','Singapore','Japan','Russia','United-States','Mexico','Brazil','Abu-Dhabi']
             };
 
             that.years(aYears.years);
 
             that.countries(aCountries.country);
-            if (year == null || country == null){
-                return;
+
+            var bAllCountries = false;
+            var sTableId = '';
+            var sURL = 'http://www.c0rdii.com/f1/api/results/';
+            if (country == "All"){
+                bAllCountries = true;
+                sURL += year;
+                sTableId = '#yearResultsTable';
             }
             else {
-                var sURL = 'http://www.c0rdii.com/f1/api/results/' + year + '/' + country;
-                var allResults = [];
-                $.getJSON(sURL, function(data){
-                    allResults = data[0].Results;
-                }).done(function(){
-                    buildDataTable('#resultsTable', that.results, allResults);
-                });
+                sURL += year + '/' + country;
+                sTableId = '#resultsTable';
             }
+
+            var allResults = [];
+            $.getJSON(sURL, function(data){
+                allResults = data[0].Results;
+            }).done(function(){
+                that.allCountries(bAllCountries);
+                buildDataTable(sTableId, that.results, allResults);
+            });
+            
 
         },
         yearParam: function(){

@@ -1,7 +1,7 @@
 ﻿define(function() {
     var ctor = function () {
-        this.displayName = 'c0rdii Web Development Blog';
-        this.description = 'Welcome to my Web Dev Blog site.';
+        this.displayName = 'F1 Web App';
+        this.description = 'Welcome, this App site was built using "c0rdii.com F1 Web API."';
         this.features = [
             'Clean MV* Architecture',
             'JS & HTML Modularity',

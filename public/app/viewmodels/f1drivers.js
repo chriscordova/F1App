@@ -24,7 +24,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/dialog','datatables
             item.closeModal = function(a,b){
                 var self = this;
                 dialog.close(self);
-                window.location.href = "/#teams/" + a.Team.Name;
+                window.location.href = "#teams/" + a.Team.Name;
             };
             app.showDialog(item);
         }

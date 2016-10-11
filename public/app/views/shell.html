@@ -8,8 +8,10 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <i class="fa fa-home"></i>
-                <span>c0rdii.com</span>
+                <img src="css/f1_logo.svg" style="width: 50px"/>
+                <!--<i class="fa fa-home"></i>-->
+                <span>c0rdii.com F1 Web App</span>
+                
             </a>
         </div>
 
@@ -30,22 +32,14 @@
             </ul>
 
             <!--Search bar-->
-            <form class="navbar-form navbar-right" role="search" data-bind="submit:search">
+            <!--<form class="navbar-form navbar-right" role="search" data-bind="submit:search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-            </form>
+            </form>-->
 
         </div>
     </nav>
 
-    <div class="page-host" data-bind="router: { transition:'entrance' }"></div>
-    <script type="text/javascript">
-            jQuery(function(){
-                jQuery(".navbar-nav li a").click(function(event) {
-                    console.log('sdfsdf');
-                    jQuery(".navbar-collapse").collapse('hide');
-                });
-            });
-        </script>
+    <div class="page-host" data-bind="router: { transition:'entrance' }"></div>    
 </div>
