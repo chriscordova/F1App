@@ -50,11 +50,35 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         activate: function() {
             var that = this;
         },
+        getScrapeURL: function(element){
+            var sReturnUrl = '';
+            if (element.id == "standings" || element.id == "seasons"){
+                var returnObj = $.grep(element.attributes, function(s){
+                    return s.name == "data-from";
+                });
+
+                if (returnObj[0].value == "all"){
+                    sReturnUrl = 'http://www.c0rdii.com/f1/api/scrape/' + element.id;
+                }
+                else if (returnObj[0].value == "current"){
+                    var currentDT = new Date();
+                    var currentYear = currentDT.getFullYear();
+                    sReturnUrl = 'http://localhost:62129/api/scrape/' + element.id + '/' + currentYear;
+                }
+
+            }
+            else {
+                sReturnUrl = 'http://www.c0rdii.com/f1/api/scrape/' + element.id;
+            }
+            
+            return sReturnUrl;
+        },
         scrapeData: function(item, e){
             var that = this;
             var scrapeItem = e.currentTarget.id;
-            var sUrl = 'http://www.c0rdii.com/f1/api/scrape/' + scrapeItem;
 
+            var sUrl = that.getScrapeURL(e.currentTarget);
+            
             $('#success-' + scrapeItem).hide();
             $('#fail-' + scrapeItem).hide();
             $('#success-' + scrapeItem).hide();

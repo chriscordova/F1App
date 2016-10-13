@@ -25,13 +25,16 @@ body {
 .container {
     background-color: white;
     margin-top: 15px;
-    padding: 20px 10px;
 }
 
 .smalltext {
     font-size: 10.5px;
     font-style: italic;
     color: #444444;
+}
+
+.dd-link {
+    cursor: pointer;
 }
 
 /*****************************************/
