@@ -1,4 +1,4 @@
-﻿define(function() {
+﻿define(['durandal/app'], function (app) {
     var ctor = function () {
         this.displayName = 'F1 Web App';
         this.description = 'Welcome, this App site was built using "c0rdii.com F1 Web API."';
