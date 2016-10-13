@@ -13,7 +13,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
                 var aPromises = [];
                 $(aScrapes).each(function(i,v){
 
-                    var sUrl = 'http://localhost:62129/api/scrapelog/get/' + v;
+                    var sUrl = 'http://www.c0rdii.com/f1/api/scrapelog/get/' + v;
 
                     var o = $.ajax({
                         type: 'GET',
@@ -63,7 +63,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
                 else if (returnObj[0].value == "current"){
                     var currentDT = new Date();
                     var currentYear = currentDT.getFullYear();
-                    sReturnUrl = 'http://localhost:62129/api/scrape/' + element.id + '/' + currentYear;
+                    sReturnUrl = 'http://www.c0rdii.com/f1/api/scrape/' + element.id + '/' + currentYear;
                 }
 
             }
@@ -100,7 +100,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
                     $('#error-' + scrapeItem).html(msg.statusText);
                 }
             }).done(function(){
-                var sPostUrl = 'http://localhost:62129/api/scrapelog/update/' + scrapeItem;
+                var sPostUrl = 'http://www.c0rdii.com/f1/api/scrapelog/update/' + scrapeItem;
 
                 $.ajax({
                     type: 'POST',
