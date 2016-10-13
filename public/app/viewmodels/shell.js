@@ -17,7 +17,7 @@
                 { route: 'results(/:id)(/:id)', hash: '#results', title: 'Race Results', moduleId: 'f1results', nav: true},
                 { route: 'teams(/:id)', hash: '#teams', title: 'Teams', moduleId: 'f1teams', nav: true  },
                 { route: 'seasons(/:id)', hash: '#seasons', title: 'Seasons', moduleId: 'f1seasons', nav: true},
-                { route: 'admin', hash: '#admin', title: 'Admin', moduleId: 'f1scrape', nav: true  }
+                { route: 'admin', hash: '#admin', title: 'Admin', moduleId: 'f1scrape', nav: false  }
                 
 
             ]).buildNavigationModel();

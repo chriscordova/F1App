@@ -27,6 +27,12 @@ body {
     padding: 20px 10px;
 }
 
+.smalltext {
+    font-size: 10.5px;
+    font-style: italic;
+    color: #444444;
+}
+
 /*****************************************/
 
 .splash {
