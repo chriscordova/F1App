@@ -1,17 +1,32 @@
-define(['plugins/http', 'durandal/app', 'knockout', 'plugins/dialog','datatables', 'customScripts'], function (http, app, ko, dialog) {
+define(['plugins/http', 'durandal/app', 'knockout', 'plugins/dialog', 'customScripts'], function (http, app, ko, dialog) {
 
     return {
         drivers: ko.observableArray([]),
         biography: ko.observableArray([]),
+        compositionComplete: function(){
+            var that = this;
+            if (that.drivers().length > 0){
+                return;
+            }
+
+            $('#loading').show();
+        },
         activate: function() {
             var that = this;
-            
+
+            if (that.drivers().length > 0){
+                return;
+            }
+
+            $('#loading').show();
             var sURL = 'http://www.c0rdii.com/f1/api/drivers';
             var allDrivers = [];
+
             $.getJSON(sURL, function(data){
                 allDrivers = data[0].Drivers;
             }).done(function(){
-                buildDataTable('#driversTable', that.drivers, allDrivers)
+                $('#loading').hide();
+                buildDataTable('#driversTable', that.drivers, allDrivers);
             });
 
             

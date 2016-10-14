@@ -18,7 +18,6 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'datatable
                 allTeams = data[0].ConstructorStandings;
             }).done(function(){
                 buildDataTable('#constructorsTable', that.constructors, allTeams);
-                //return that.constructors(allTeams);
             });            
         },
         param: function(){

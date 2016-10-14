@@ -1,22 +1,15 @@
 <section>
     <div class="container">
         <p></p>
-        <table class="table table-striped" id="driversTable">
-            <thead>
-                <tr><th>Driver</th><th>Full Name</th><th>Driver Number</th><th>Driver Profile</th></tr>
-            </thead>
-            <tbody data-bind="foreach: drivers">
-                <tr>
-                    <td>
-                        <img data-bind="attr:{src: ImageURL}, click:$parent.select" style="max-width: 100px; cursor: pointer;" />
-                    </td>
-                    <td data-bind="text: Name"></td>
-                    <td data-bind="text: DriverNumber"></td>
-                    <td>
-                        <a data-bind="attr:{href: DriverURL}, text: Name"></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <img src="css/ellipsis.gif" id="loading" style="width: 50px; display: none; "/>
+        <!-- ko foreach: drivers -->
+        <div class="well well-sm col-md-3 col-sm-4 col-xs-6">
+            <img class="dd-link-img well-img-top img-responsive" src="..." alt="Card image cap" data-bind="attr:{src: ImageURL}, click:$parent.select">
+            <div class="well-block" style="text-align: center;">
+                <h4 class="well-title" data-bind="text: Name" ></h4>
+                <h4 class="well-title" data-bind="text: DriverNumber" ></h4>
+            </div>
+        </div>
+        <!-- /ko-->
     </div>
 </section>

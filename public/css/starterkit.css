@@ -33,8 +33,12 @@ body {
     color: #444444;
 }
 
-.dd-link {
+.dd-link, .dd-link-img {
     cursor: pointer;
+}
+
+.dd-link-img:hover {
+    opacity: 0.5;
 }
 
 /*****************************************/
