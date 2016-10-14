@@ -8,13 +8,13 @@
                 </ul>
             </div>
             <div class="col-md-9">
-                <!-- ko if: param() != null -->
-                <h2 data-bind="text: 'Constructor Standings for ' + param()"></h2>
+                <!-- ko if: yearParam() != null -->
+                <h2 data-bind="text: 'Constructor Standings for ' + yearParam()"></h2>
                 <table class="table table-striped" id="constructorsTable">
                     <thead>
                         <tr><th>Position</th><th>Team</th><th>Points</th></tr>
                     </thead>
-                    <tbody data-bind="foreach: constructors">
+                    <tbody data-bind="foreach: constructorsForYear">
                         <tr>                    
                             <td data-bind="text: Position"></td>
                             <td data-bind="text: Team"></td>
