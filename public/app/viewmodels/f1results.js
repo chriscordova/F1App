@@ -1,4 +1,4 @@
-define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap','datatables','customScripts'], function (http, app, ko, router, bs) {
+define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap','datatables','customScripts','config'], function (http, app, ko, router, bs) {
 
     return {
         router: router,
@@ -9,21 +9,13 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
         activate: function(year, country) {
             
             var that = this;
-            var aYears = {
-                "years":  ['2015','2016']
-            };
-
-            var aCountries = {
-                "country": ['All','Australia','Malaysia','China','Bahrain','Spain','Monaco','Canada','Austria','Great-Britain','Hungary','Belgium','Italy','Singapore','Japan','Russia','United-States','Mexico','Brazil','Abu-Dhabi']
-            };
-
-            that.years(aYears.years);
-
-            that.countries(aCountries.country);
-
+            var aYears = config.years;
+            that.years(aYears);
+            that.SetCountries(aYears ,that);
             var bAllCountries = false;
             var sTableId = '';
-            var sURL = 'http://www.c0rdii.com/f1/api/results/';
+            var sURL = config.apiURL + 'results/';
+
             if (country == "All"){
                 bAllCountries = true;
                 sURL += year;
@@ -41,7 +33,6 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
                 that.allCountries(bAllCountries);
                 buildDataTable(sTableId, that.results, allResults);
             });
-            
 
         },
         yearParam: function(){
@@ -51,7 +42,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
             return router.activeInstruction().params[1];
         },
         friendly: function(country){
-            return country.replace('-',' ');
+            return country.replace('_',' ');
         },
         hideMenu: function(e,v){
             var id = v.currentTarget.parentElement.id;
@@ -59,6 +50,38 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
             var bIsShown = $element.hasClass('in');
             if (bIsShown) $element.collapse('hide');
             window.location.href = v.currentTarget.hash;
+        },
+        SetCountries: function(years, that){
+            
+            if (that.countries().length > 0) return;
+
+            var countryArray = [];
+            var aPromises = [];
+            $(years).each(function(i,y){
+                var aCountries = [];
+                var a = [];
+                var sSeasonsURL = config.apiURL + "seasons/" + y;
+                var promise = $.getJSON(sSeasonsURL, function(data){
+                    aCountries = $.grep(data, function(s){
+                        return s.Complete;
+                    });
+
+                    $(aCountries).each(function(i,c){
+                        a.push(c.RaceCountry.Name);
+                    });
+
+                    a.unshift("All");
+                }).done(function(){
+                    countryArray.push(a);
+                });
+
+                aPromises.push(promise);
+            });
+
+            //Issue: not returning promises in order of aPromises array
+            Promise.all(aPromises).then(function(){
+                that.countries(countryArray);
+            });
         }
     }
 });

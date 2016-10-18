@@ -8,7 +8,8 @@
         'bootstrap': '../lib/bootstrap/js/bootstrap',
         'jquery': '../lib/jquery/jquery-1.9.1',
         'datatables':'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min',
-        'customScripts':'../lib/custom'
+        'customScripts':'../lib/custom',
+        'config':'../lib/config'
     },
     shim: {
         'bootstrap': {

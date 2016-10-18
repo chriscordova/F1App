@@ -3,14 +3,18 @@
         <p></p>
         <div class="row">
             <div class="col-md-3">
+                
                 <ul class="list-group" data-bind="foreach: years">
                     <a data-toggle="collapse" data-bind="attr: { href: '#collapse' + $index() }"><li class="list-group-item"><span data-bind="text: $data"></span></li></a>
                     <div data-bind="attr: { id: 'collapse' + $index() }" class="panel-collapse collapse toggled">
-                        <ul class="list-group" data-bind="foreach: $root.countries, attr: { id: 'collapseul' + $index()}">
+                        
+                        <ul class="list-group" data-bind="foreach: $root.countries()[$index()], attr: { id: 'collapseul' + $index()}">
                             <a data-bind="attr: { href: '#results/' + $parent + '/' + $data }, click: $root.hideMenu"><li class="list-group-item"><span data-bind="text: '- ' + $root.friendly($data)"></span></li></a>
                         </ul>
+                        
                     </div>
                 </ul>
+                
             </div>
             <div class="col-md-9">
                 <!-- ko if: yearParam() != null && countryParam != null -->
