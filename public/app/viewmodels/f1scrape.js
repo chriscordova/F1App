@@ -87,7 +87,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
 
             $.ajax({
                 type: 'GET',
-                beforeSend: this.setHeaders,
+                beforeSend: that.setHeaders,
                 dataType: 'json',
                 url: sUrl,
                 success: function(msg) {
@@ -104,7 +104,7 @@ define(['plugins/http', 'durandal/app', 'knockout', 'plugins/router', 'bootstrap
 
                 $.ajax({
                     type: 'POST',
-                    beforeSend: this.setHeaders,
+                    beforeSend: that.setHeaders,
                     dataType: 'json',
                     url: sPostUrl,
                     success: function(data) {
